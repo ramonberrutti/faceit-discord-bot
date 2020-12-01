@@ -55,7 +55,7 @@ pub struct Games {
     #[serde(rename = "game_profile_id")]
     pub game_profile_id: String,
     pub region: String,
-    pub regions: Option<Regions>,
+    pub regions: Option<::std::collections::HashMap<String, Regions>>,
     #[serde(rename = "skill_level_label")]
     pub skill_level_label: String,
     #[serde(rename = "game_player_id")]
@@ -71,34 +71,8 @@ pub struct Games {
 #[derive(Default, Debug, Clone, PartialEq, serde_derive::Serialize, serde_derive::Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Regions {
-    #[serde(rename = "SA")]
-    pub sa: Sa,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, serde_derive::Serialize, serde_derive::Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Sa {
     #[serde(rename = "selected_ladder_id")]
     pub selected_ladder_id: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, serde_derive::Serialize, serde_derive::Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct ClashRoyale {
-    #[serde(rename = "game_profile_id")]
-    pub game_profile_id: String,
-    pub region: String,
-    pub regions: ::serde_json::Value,
-    #[serde(rename = "skill_level_label")]
-    pub skill_level_label: String,
-    #[serde(rename = "game_player_id")]
-    pub game_player_id: String,
-    #[serde(rename = "skill_level")]
-    pub skill_level: i64,
-    #[serde(rename = "faceit_elo")]
-    pub faceit_elo: i64,
-    #[serde(rename = "game_player_name")]
-    pub game_player_name: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, serde_derive::Serialize, serde_derive::Deserialize)]
